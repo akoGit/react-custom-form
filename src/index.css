@@ -1,15 +1,54 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  html {
+    font-family: Alegreya, serif, system-ui, sans-serif;
+  }
 }
 
+input {
+    width: 100%;
+    background-color: #374151;
+    border:none;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding:1em 2.25em;
+    font-size: 19px;
+    color: #ffffff;
+    transition: outline-color .3s;
+    outline:2px solid transparent
+} 
 
+
+textarea {
+    width: 100%;
+    background-color: #374151;
+    border:none;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding:.8em 2.3em;
+    font-size: 19px;
+    color: #ffffff;
+    resize: none;
+    transition: outline-color .3s;
+    outline:2px solid transparent
+}
+
+textarea:focus{
+    outline: 2px solid #ffffff;
+}
+
+input:focus{
+  outline: 2px solid #ffffff;
+}
+
+input:user-invalid {
+  outline: 2px solid #f05252;
+}
+
+input:user-valid {
+    outline: 2px solid #0e9f6e;
+}

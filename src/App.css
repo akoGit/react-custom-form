@@ -24,45 +24,6 @@ body {
     font-size: 19px;
 }  
 
-textarea {
-    width: 100%;
-    background-color: #374151;
-    font-family:Alegreya, serif;
-    padding-left: 40px;
-    border:none;
-    border-radius: 2px;
-    padding-top: 2px;
-    padding:.8em 2.3em;
-    font-size: 19px;
-    color: #ffffff;
-    resize: none;
-    transition: outline-color .3s;
-    outline:2px solid transparent
-}
-
-input {
-    width: 100%;
-    background-color: #374151;
-    font-family:Alegreya, serif;
-    padding-left: 40px;
-    border:none;
-    border-radius: 2px;
-    padding-top: 2px;
-    padding:1em 2.25em;
-    font-size: 19px;
-    color: #ffffff;
-    transition: outline-color .3s;
-    outline:2px solid transparent
-} 
-
-textarea:focus {
-    outline: 2px solid #ffffff;
-}
-
-input:focus {
-  outline: 2px solid #ffffff;
-}
-
 input:user-invalid {
   outline: 2px solid #f05252;
 }
@@ -102,25 +63,12 @@ input:user-valid {
     transition: outline-color 0.5s;
     outline: 2px solid transparent;
     font-family:Alegreya, serif;
-    &:focus {
-        outline: 2px solid #ffffff;
-    }
+}
+.drop_down_header:focus {
+    outline:2px solid #ffffff;
 }
 
-.list_style {
-    list-style: none;
-    padding:16px 20px;
-    font-family:Alegreya, serif;
-    border: 2px solid transparent;
-    border-radius: 2px;
-    &:hover {
-        background-color: #111826;
-        border: 2px solid #ffffff;
-        cursor:pointer;
-    }
-}
-
-.submit_button:focus {
+.submit_button:focus{
     outline: 2px solid #ffffff;
 }
 

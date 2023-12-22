@@ -170,21 +170,22 @@ function Formv1() {
                             transition: "transform .2s ease-out",
                             transform: `rotate(${caretRotation}deg)`,
                         }}
-                    />
+                 />
                                           
                 </div>
 
                 <DropDownListContainer isOpen={isOpen}>
-                    <ul className='p-0 m-0 bg-gray-800 text-lg text-white text-left'>
+                <ul className='p-0 m-0 bg-gray-800 text-lg text-white text-left'>
                         {options.map((option) => (
-                            <li className='list_style'
-                                onClick={onOptionClicked(option)}
-                                key={Math.random()}
-                            >
-                                {option}
-                            </li>
+                    <li className='list-none py-5 px-4 border-2 rounded-sm border-transparent
+                                    hover:bg-gray-900 hover:cursor-pointer'
+                        onClick={onOptionClicked(option)}
+                        key={Math.random()}
+                     >
+                         {option}
+                    </li>
                         ))}
-                    </ul>
+                 </ul>
                 </DropDownListContainer>
             </div>
             <div  className="relative w-full flex items-center">
@@ -208,7 +209,7 @@ function Formv1() {
                 onMouseLeave={handleLeave}
                 className="submit_button"
                 style={{
-                        backgroundColor: hovered
+                    backgroundColor: hovered
                         ? "#374151"
                         : submitted
                         ? "#040921"
@@ -257,6 +258,7 @@ function Formv1() {
                     <div className='flex items-center justify-center'>
 
                     {/*<CheckCircle size={iconSize} color={iconColor} />*/}
+                    {/*lottie animation converted to gif */}
                     <img src={succ} width="25px" height="25px" />
                         <span className='ml-1'>
                             Thank you, Your request was sent.
