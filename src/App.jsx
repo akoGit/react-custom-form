@@ -1,7 +1,6 @@
 import './App.css'
 import { useState, useRef, useEffect } from "react"
-import styled from "styled-components"
-import succ from './assets/noloop.gif'
+// import succ from './assets/noloop.gif'
 import {
     CurrencyCircleDollar,
     UserCircle,
@@ -10,26 +9,8 @@ import {
     TextT,
     CaretDown,
     PaperPlaneTilt,
-    // CheckCircle
+    CheckCircle
 } from "@phosphor-icons/react";
-
-
-const DropDownListContainer = styled("div")`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
-  margin-top: .2rem;
-  border-radius: 2px;
-  transform-origin: top center;
-  z-index: ${(props) => (props.isOpen ? 10 : -10)};
-  opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  transform: scale(${(props) => (props.isOpen ? 1 : 0.95)});
-  transition: opacity 100ms ease-out, transform 100ms ease-out;
-  pointer-events: ${(props) => (props.isOpen ? "auto" : "none")};
-`
 
 const options = ["Less than 10K", "10k-20k", "20k-30k", "30k-40k", "50k+"]
 const iconSize = 26
@@ -73,7 +54,7 @@ function Formv1() {
         return () => {
             document.removeEventListener("click", handleOutsideClick)
         }
-    }, )
+    },)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -83,7 +64,7 @@ function Formv1() {
             setSubmitted(true);
         }, 2000);
     };
-   
+
     const handleHover = () => {
         if (!loading && !submitted) {
             setHovered(true)
@@ -96,7 +77,7 @@ function Formv1() {
 
     const [hovered, setHovered] = useState(false)
 
-     return (
+    return (
         <form
             className='flex flex-col text-lg gap-4 bg-transparent rounded relative w-full text-white'
             method="POST"
@@ -105,7 +86,7 @@ function Formv1() {
             <div className='flex items-center gap-4'>
                 <div className="relative w-full flex items-center">
                     <div className='absolute ml-2 grid place-items-center'>
-                     <UserCircle size={iconSize} color={iconColor} />
+                        <UserCircle size={iconSize} color={iconColor} />
                     </div>
                     <input
                         type="text"
@@ -115,10 +96,10 @@ function Formv1() {
                         required
                     />
                 </div>
-                
-                <div  className="relative w-full flex items-center">
+
+                <div className="relative w-full flex items-center">
                     <div className='absolute ml-2 grid place-items-center'>
-                     <UserCircle size={iconSize} color={iconColor} />
+                        <UserCircle size={iconSize} color={iconColor} />
                     </div>
                     <input
                         type="text"
@@ -131,9 +112,9 @@ function Formv1() {
             </div>
 
 
-            <div  className="relative w-full flex items-center">
+            <div className="relative w-full flex items-center">
                 <div className='absolute ml-2 grid place-items-center'>
-                   <EnvelopeSimple size={iconSize} color={iconColor}/>
+                    <EnvelopeSimple size={iconSize} color={iconColor} />
                 </div>
                 <input
                     type="email"
@@ -146,7 +127,7 @@ function Formv1() {
 
             <div className="relative w-full flex items-center">
                 <div className='absolute ml-2 grid place-items-center'>
-                     <Shapes size={iconSize} color={iconColor} />
+                    <Shapes size={iconSize} color={iconColor} />
                 </div>
                 <input
                     type="text"
@@ -158,39 +139,37 @@ function Formv1() {
             </div>
 
             <div className="relative bg-transparent" ref={dropdownRef}>
-                <div className="drop_down_header" tabIndex="0" onClick={toggling} >
+
+                <div className="text-lg text-gray-400 h-16 rounded-sm pl-11 relative cursor-pointer flex bg-gray-700 justify-between items-center whitespace-no-wrap outline-none focus:outline-white outline-offset-0" 
+                    tabIndex="0" onClick={toggling} >
                     <div className='absolute left-px ml-2 grid place-items-center'>
                         <CurrencyCircleDollar size={iconSize} color={iconColor} />
                     </div>
                     {budget || "Project Budget"}
-                 <CaretDown size={20}  weight="bold" 
-                        style={{
-                            color: iconColor,
-                            marginRight: "1rem",
-                            transition: "transform .2s ease-out",
-                            transform: `rotate(${caretRotation}deg)`,
-                        }}
-                 />
-                                          
+                    <CaretDown size={20} weight="bold" color={iconColor}
+                        className={`rotate-${caretRotation} transition-transform duration-200 mr-4`}
+                    />
                 </div>
 
-                <DropDownListContainer isOpen={isOpen}>
-                <ul className='p-0 m-0 bg-gray-800 text-lg text-white text-left'>
+                <div className={`opacity-${isOpen ? '100' : '0'} z-${isOpen ? '10' : '0'}
+                    scale-${isOpen ? '100' : '75'} pointer-events-${isOpen ? 'auto' : 'none'} transition-all 
+                    absolute top-full left-0 w-full overflow-hidden mt-1 rounded-sm origin-top`}>
+
+                    <ul className='p-0 m-0 bg-gray-800 text-lg text-white text-left'>
                         {options.map((option) => (
-                    <li className='list-none py-5 px-4 border-2 rounded-sm border-transparent
-                                    hover:bg-gray-900 hover:cursor-pointer'
-                        onClick={onOptionClicked(option)}
-                        key={Math.random()}
-                     >
-                         {option}
-                    </li>
+                            <li className='list-none py-5 px-4 border-2 rounded-sm border-transparent transition-colors hover:bg-gray-900 hover:cursor-pointer'
+                                onClick={onOptionClicked(option)}
+                                key={Math.random()}
+                            >
+                                {option}
+                            </li>
                         ))}
-                 </ul>
-                </DropDownListContainer>
+                    </ul>
+                </div>
             </div>
-            <div  className="relative w-full flex items-center">
+            <div className="relative w-full flex items-center">
                 <div className='absolute top-4 left-2.5'>
-                   <TextT size={iconSize} color={iconColor} />
+                    <TextT size={iconSize} color={iconColor} />
                 </div>
                 <textarea
                     type="textarea"
@@ -212,8 +191,8 @@ function Formv1() {
                     backgroundColor: hovered
                         ? "#374151"
                         : submitted
-                        ? "#040921"
-                        : "#040921",
+                            ? "#040921"
+                            : "#040921",
                 }}
             >
                 {loading ? (
@@ -257,16 +236,16 @@ function Formv1() {
                 ) : submitted ? (
                     <div className='flex items-center justify-center'>
 
-                    {/*<CheckCircle size={iconSize} color={iconColor} />*/}
-                    {/*lottie animation converted to gif */}
-                    <img src={succ} width="25px" height="25px" />
+                        <CheckCircle size={iconSize} color="#0e9f6e" />
+                        {/*lottie animation converted to gif */}
+                        {/*<img src={succ} width="25px" height="25px" />*/}
                         <span className='ml-1'>
                             Thank you, Your request was sent.
                         </span>
                     </div>
                 ) : (
                     <div className='flex items-center justify-center'>
-                    <PaperPlaneTilt size={iconSize} color={iconColor} />
+                        <PaperPlaneTilt size={iconSize} color={iconColor} />
                         <span className='ml-2'>
                             Send a request
                         </span>

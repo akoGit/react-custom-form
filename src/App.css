@@ -24,13 +24,6 @@ body {
     font-size: 19px;
 }  
 
-input:user-invalid {
-  outline: 2px solid #f05252;
-}
-
-input:user-valid {
-    outline: 2px solid #0e9f6e;
-}
 .submit_button {
     position: relative;
     font-size: 19px;
@@ -47,27 +40,6 @@ input:user-valid {
     transition: background-color 0.3s ease-out;
     vertical-align: middle;
 }
-.drop_down_header {
-    font-size: 19px;
-    color: #9ca3af;
-    border-radius:2px;
-    padding-left: 43px;
-    position: relative;
-    height: 3.4em;
-    cursor: pointer;
-    display: flex;
-    background-color: #374151;
-    justify-content:space-between;
-    align-items:center;
-    white-space: nowrap;
-    transition: outline-color 0.5s;
-    outline: 2px solid transparent;
-    font-family:Alegreya, serif;
-}
-.drop_down_header:focus {
-    outline:2px solid #ffffff;
-}
-
 .submit_button:focus{
     outline: 2px solid #ffffff;
 }
