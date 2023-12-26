@@ -187,12 +187,12 @@ function Formv1() {
                 onMouseEnter={handleHover}
                 onMouseLeave={handleLeave}
                 className="submit_button"
-                style={{
-                    backgroundColor: hovered
+                style={{ backgroundColor: hovered
                         ? "#374151"
                         : submitted
-                            ? "#040921"
-                            : "#040921",
+                        ? "#040921"
+                        : "#040921",
+                    cursor: loading  ? 'wait' : 'pointer'
                 }}
             >
                 {loading ? (
